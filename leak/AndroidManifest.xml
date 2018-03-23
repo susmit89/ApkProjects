@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1"
+    android:versionName="1.0"
+    package="com.example.sampr.leakageapp"
+    platformBuildVersionCode="25"
+    platformBuildVersionName="7.1.1">
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="25" />
+
+    <application
+        android:theme="@ref/0x7f08009c"
+        android:label="@ref/0x7f060021"
+        android:icon="@ref/0x7f030000"
+        android:debuggable="true"
+        android:allowBackup="true"
+        android:supportsRtl="true">
+
+        <activity
+            android:name="com.example.sampr.leakageapp.MainActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+</manifest>

@@ -1,0 +1,167 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="JAVA_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="android" name="Android">
+      <configuration />
+    </facet>
+    <facet type="apk" name="APK">
+      <configuration>
+        <option name="APK_PATH" value="$MODULE_DIR$/PayPal_v6.21.1_apkpure.com.apk" />
+        <option name="APP_PACKAGE" value="com.paypal.android.p2pmobile" />
+        <option name="SETUP_ISSUES">
+          <list>
+            <SetupIssue>
+              <option name="severity" value="WARNING" />
+              <option name="category" value="DEBUG_SYMBOLS_MISSING" />
+              <option name="extraInfo" value="" />
+            </SetupIssue>
+          </list>
+        </option>
+        <option name="NATIVE_LIBRARIES">
+          <list>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libA2iAMPEngine.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libA2iAMPEngine.so" />
+                </list>
+              </option>
+              <option name="name" value="libA2iAMPEngine.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/mips/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/mips64/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libare-detection.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libare-detection.so" />
+                </list>
+              </option>
+              <option name="name" value="libare-detection.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libcardioDecider.so" />
+                  <option value="$MODULE_DIR$/lib/mips/libcardioDecider.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libcardioDecider.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi/libcardioDecider.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libcardioDecider.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libcardioDecider.so" />
+                </list>
+              </option>
+              <option name="name" value="libcardioDecider.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libcardioRecognizer.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libcardioRecognizer.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libcardioRecognizer.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libcardioRecognizer.so" />
+                </list>
+              </option>
+              <option name="name" value="libcardioRecognizer.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libcardioRecognizer_tegra2.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libcardioRecognizer_tegra2.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libcardioRecognizer_tegra2.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libcardioRecognizer_tegra2.so" />
+                </list>
+              </option>
+              <option name="name" value="libcardioRecognizer_tegra2.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libopencv_core.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libopencv_core.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libopencv_core.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libopencv_core.so" />
+                </list>
+              </option>
+              <option name="name" value="libopencv_core.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+            <NativeLibrary>
+              <option name="sharedObjectFilePaths">
+                <list>
+                  <option value="$MODULE_DIR$/lib/x86/libopencv_imgproc.so" />
+                  <option value="$MODULE_DIR$/lib/x86_64/libopencv_imgproc.so" />
+                  <option value="$MODULE_DIR$/lib/arm64-v8a/libopencv_imgproc.so" />
+                  <option value="$MODULE_DIR$/lib/armeabi-v7a/libopencv_imgproc.so" />
+                </list>
+              </option>
+              <option name="name" value="libopencv_imgproc.so" />
+              <option name="debuggableSharedObjectFilesByAbi">
+                <map />
+              </option>
+              <option name="pathMappings">
+                <map />
+              </option>
+              <option name="hasDebugSymbols" value="false" />
+            </NativeLibrary>
+          </list>
+        </option>
+        <option name="JAVA_SOURCE_FOLDER_PATHS">
+          <set />
+        </option>
+      </configuration>
+    </facet>
+  </component>
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <excludeFolder url="file://$MODULE_DIR$/lib" />
+    </content>
+    <orderEntry type="jdk" jdkName="Android API 25 Platform" jdkType="Android SDK" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>

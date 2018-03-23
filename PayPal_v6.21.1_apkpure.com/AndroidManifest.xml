@@ -1,0 +1,1797 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="1150070203"
+    android:versionName="6.21.1"
+    package="com.paypal.android.p2pmobile">
+
+    <uses-sdk
+        android:minSdkVersion="15"
+        android:targetSdkVersion="25" />
+
+    <supports-screens
+        android:smallScreens="true"
+        android:normalScreens="true"
+        android:largeScreens="true"
+        android:xlargeScreens="true" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
+    <uses-permission
+        android:name="android.permission.CAMERA" />
+
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_SMS" />
+
+    <uses-permission
+        android:name="android.permission.READ_SMS" />
+
+    <uses-permission
+        android:name="android.permission.READ_PROFILE" />
+
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission
+        android:name="android.permission.NFC" />
+
+    <uses-permission
+        android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission
+        android:name="android.permission.CHANGE_CONFIGURATION" />
+
+    <permission
+        android:name="com.paypal.android.p2pmobile.permission.C2D_MESSAGE"
+        android:protectionLevel="0x2" />
+
+    <uses-permission
+        android:name="com.paypal.android.p2pmobile.permission.C2D_MESSAGE" />
+
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-feature
+        android:glEsVersion="0x20000"
+        android:required="true" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.autofocus"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera.flash"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.nfc"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <meta-data
+        android:name="android.support.VERSION"
+        android:value="25.3.1" />
+
+    <uses-feature
+        android:name="android.hardware.nfc.hce"
+        android:required="false" />
+
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission
+        android:name="android.permission.DISABLE_KEYGUARD" />
+
+    <uses-permission
+        android:name="org.fidoalliance.uaf.permissions.FIDO_CLIENT" />
+
+    <uses-permission
+        android:name="android.permission.USE_FINGERPRINT" />
+
+    <application
+        android:theme="@ref/0x7f110053"
+        android:label="@ref/0x7f100177"
+        android:icon="@ref/0x7f080068"
+        android:name="com.paypal.android.p2pmobile.common.app.PayPalApplication"
+        android:enabled="true"
+        android:allowBackup="false"
+        android:hardwareAccelerated="true"
+        android:supportsRtl="true"
+        android:resizeableActivity="false">
+
+        <receiver
+            android:name="com.adjust.sdk.AdjustReferrerReceiver"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.android.vending.INSTALL_REFERRER" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.google.android.gms.gcm.GcmReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <action
+                    android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <action
+                    android:name="com.google.android.c2dm.intent.REGISTER" />
+
+                <category
+                    android:name="com.paypal.android.p2pmobile" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:label="@ref/0x7f100177"
+            android:name="com.paypal.android.p2pmobile.appwidget.WidgetLauncherProvider">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@ref/0x7f140003" />
+        </receiver>
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.instorepay.service.ReplenishmentAlarm" />
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.instorepay.service.ReplenishmentBootReceiver"
+            android:enabled="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.instorepay.service.UploadDiagnosticsAlarm" />
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.instorepay.service.UploadDiagnosticsBootReceiver"
+            android:enabled="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.upgrade.utils.UpgradeReceiver">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MY_PACKAGE_REPLACED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.common.utils.IncomingSms">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.provider.Telephony.SMS_RECEIVED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.paypal.android.p2pmobile.pushnotification.receiver.AcceptDirectReplyBroadcastReceiver"
+            android:enabled="true"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.pushnotification.service.GcmPushNotificationListenerService"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category
+                    android:name="com.paypal.android.p2pmobile" />
+
+                <category
+                    android:name="com.bellid.mobile.seitc.app" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.paypal.android.p2pmobile.pushnotification.service.InstanceIdListenerService"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.gms.iid.InstanceID" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.paypal.android.p2pmobile.pushnotification.service.GCMRegistrationIntentService"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.pushnotification.service.NotificationSettingsService"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.pushnotification.service.NotificationSubscriptionService"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.settings.service.NotificationSettingsMockService"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.instorepay.service.UploadDiagnosticsService" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.instorepay.service.ReplenishmentService" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.instorepay.service.NfcPaymentService"
+            android:permission="android.permission.BIND_NFC_SERVICE"
+            android:enabled="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.nfc.cardemulation.action.HOST_APDU_SERVICE" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.nfc.cardemulation.host_apdu_service"
+                android:resource="@ref/0x7f140000" />
+        </service>
+
+        <service
+            android:name="com.paypal.android.p2pmobile.common.services.FileDownloaderIntentService"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.p2pmobile.invitefriends.services.InviteFriendsFilterUsersService"
+            android:exported="false" />
+
+        <provider
+            android:name="com.paypal.android.p2pmobile.appconfig.AppConfigContentProvider"
+            android:exported="false"
+            android:authorities="@ref/0x7f10016e" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:exported="false"
+            android:authorities="com.paypal.android.p2pmobile.fileprovider"
+            android:grantUriPermissions="true">
+
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@ref/0x7f140002" />
+        </provider>
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.common.activities.DeepLinkActivity"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <data
+                    android:scheme="@ref/0x7f100435" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <action
+                    android:name="android.intent.action.SENDTO" />
+
+                <data
+                    android:scheme="mailto" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:path="/myaccount/settings/offlinepin/edit" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPrefix="/fundraiser/charity" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f1103f9"
+            android:label="@ref/0x7f100177"
+            android:name="com.paypal.android.p2pmobile.startup.activities.StartupActivity"
+            android:exported="true"
+            android:launchMode="2"
+            android:screenOrientation="1"
+            android:noHistory="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="ANDROID.INTENT.CATEGORY.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.FirstTimeUseActivity"
+            android:exported="true"
+            android:screenOrientation="1"
+            android:noHistory="true" />
+
+        <activity
+            android:theme="@ref/0x7f1101e3"
+            android:name="com.paypal.android.p2pmobile.home.activities.HomeActivity"
+            android:launchMode="2"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.notificationcenter.activities.NotificationCenterActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.common.activities.SingleFragmentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.common.activities.VenicePreferenceActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.AccountCredentialsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:label="@ref/0x7f100bf8"
+            android:name="com.paypal.android.p2pmobile.settings.activities.SettingsHomeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.P2PIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.EligibilityFailureActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.EligibilityInvalidActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.SelectContactActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.ContactsPermissionActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.AmountActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.SelectCurrencyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.FxSelectCurrencyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.requestmoney.activities.SuccessActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.FailureMessageActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.common.activities.AddNoteActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SendMoneyFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SendMoneyEntryActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SendMoneyInitialDataLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SelectConversionMethodActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SelectPaymentTypeActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SendMoneyFxDataLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.FundingMixSelectorActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.SendMoneyReviewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CardSecurityActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.wallet.common.activities.WebViewThreeDsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.requestmoney.activities.RequestMoneyEntryActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.requestmoney.activities.RequestMoneyInitialDataLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.p2p.requestmoney.activities.ReviewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderEntryActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderFailureActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderInitialDataLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderCountryListActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderCountryInfoLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderDisbursementMethodListActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderDisbursementMethodConfirmationActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderGoodsAndServicesExplanationActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.CrossBorderRepeatExperienceActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.XoomUserConsentActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.XoomWebFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.WebViewHelpActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x11" />
+
+        <activity
+            android:theme="@ref/0x7f110340"
+            android:name="com.paypal.android.p2pmobile.p2p.sendmoney.activities.XoomAccountInfoLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x3" />
+
+        <activity
+            android:name="io.card.payment.CardIOActivity"
+            android:configChanges="0xa0" />
+
+        <activity
+            android:name="io.card.payment.DataEntryActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AccountProfileActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110281"
+            android:name="com.paypal.android.p2pmobile.wallet.banksandcards.activities.AddPaymentFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11018a"
+            android:name="com.paypal.android.p2pmobile.donate.activities.DonateActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11018a"
+            android:name="com.paypal.android.p2pmobile.donate.activities.DonateAriesCheckoutActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11005e"
+            android:name="com.paypal.android.p2pmobile.wallet.balance.activities.BalanceFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11005e"
+            android:name="com.paypal.android.p2pmobile.wallet.balance.activities.UpdateFISelectorActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110240"
+            android:name="com.paypal.android.p2pmobile.loyalty.activities.LoyaltyFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110056"
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.OnboardingFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110056"
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.OnboardingAccountActivationActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110056"
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.OnboardingAccountActivationTilesActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110056"
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.OnboardingAddressLookupActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110056"
+            android:name="com.paypal.android.p2pmobile.onboarding.activities.CarrierAssistedOnboardingFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:label="@ref/0x7f1005df"
+            android:name="com.paypal.android.p2pmobile.settings.activities.PushNotificationsSettingsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:label="@ref/0x7f100aa0"
+            android:name="com.paypal.android.p2pmobile.settings.activities.SecuritySettingsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:label="@ref/0x7f1005d7"
+            android:name="com.paypal.android.p2pmobile.settings.activities.LegalAgreementsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.settings.activities.LoginPromptIntentReceiverActivity" />
+
+        <activity
+            android:label="CropActivity"
+            android:name="com.paypal.android.p2pmobile.settings.activities.PhotoCropActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.PinActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.settings.activities.RootSettingsActivity" />
+
+        <activity
+            android:theme="@ref/0x7f11027f"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.PayPalCreditActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11027f"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.CreditHubActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11027f"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.CreditMakeAPaymentActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11027f"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.CreditAutoPayActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f11027f"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.CreditAutoPayChooseAmountActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.paypalcredit.activities.CreditSettingsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.ecistore.activities.EciLandingActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x480"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.ecistore.activities.PaymentAgreementActivity"
+            android:screenOrientation="1"
+            android:configChanges="0x480" />
+
+        <activity
+            android:theme="@ref/0x7f110414"
+            android:name="com.paypal.android.p2pmobile.appwidget.activities.WidgetConfigureActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_CONFIGURE" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f11029f"
+            android:name="com.paypal.android.p2pmobile.wallet.paymentpreference.activities.PaymentPreferenceActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AndroidPaySettingsActivityNew" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.SamsungPaySettingsActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AndroidPayVirtualCardDetailsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110281"
+            android:name="com.paypal.android.p2pmobile.wallet.androidpay.activities.AndroidPayValuePropActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x2" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.invoice.activities.InvoiceWebActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.NFCPaymentProcessActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f100bf9"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.ShowDiagnosticsActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110383"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.NfcTapAndPayActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110251"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.TapAndPayDetailsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110251"
+            android:name="com.paypal.android.p2pmobile.settings.activities.NfcTapAndPaySettingsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.settings.activities.NfcHelpAndFAQActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.settings.activities.PayPalMeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.activityitems.activities.GiftingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AutomaticTopUpChooseAmountActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AutomaticTopUpActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.AutomaticTopUpChangeBackupActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110014"
+            android:name="com.paypal.android.p2pmobile.settings.activities.SetupAutomaticTopUpActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.common.activities.FullScreenMessageActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsIntroActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsContactsPermissionActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsContactLoadingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsNoContactsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsContactSelectionActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.invitefriends.activities.InviteFriendsFailureActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.settings.activities.HelpActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.appupgrade.activities.AppUpgradeActivity"
+            android:exported="false"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110383"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.TapAndPaySetupActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110251"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.NFCSecuritySettingsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110383"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.NFCTurningOnNFCTutorialActivity"
+            android:screenOrientation="1"
+            android:configChanges="0xd80" />
+
+        <activity
+            android:theme="@ref/0x7f110383"
+            android:name="com.paypal.android.p2pmobile.instorepay.activities.NFCActivationDoneActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f11005e"
+            android:name="com.paypal.android.p2pmobile.wallet.paypalcash.activities.PayPalCashStoreActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110276"
+            android:name="com.paypal.android.p2pmobile.wallet.paypalcash.activities.PayPalCashBarcodeActivity"
+            android:screenOrientation="6" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.wallet.paypalcash.activities.PayPalCashWebViewActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.paypalcards.activities.PayPalCardActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.paypalcards.activities.PayPalCardWebViewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110013"
+            android:name="com.paypal.android.p2pmobile.liftoff.activities.LiftOffWebViewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110055"
+            android:name="com.paypal.android.p2pmobile.incentive.activities.OfferListActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110055"
+            android:name="com.paypal.android.p2pmobile.incentive.activities.OfferDetailsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110055"
+            android:name="com.paypal.android.p2pmobile.incentive.activities.BrowserOfferWebActivty"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f11011c"
+            android:name="com.paypal.android.p2pmobile.cardlesscashout.activities.CcoActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.settings.activities.IdentityActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.MoneyBoxFlowActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.MoneyBoxCreateMoneyBoxWebActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.MoneyBoxMoveMoneyOutActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.MoneyBoxAddMoneyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.MoneyBoxEditGoalOptionsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.activities.SetupAutomaticTransferGoalOptionsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110247"
+            android:name="com.paypal.android.p2pmobile.moneybox.moneypools.activities.MoneyPoolsActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.investment.details.InvestDetailsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.investment.detailserrors.InvestDetailsErrorsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.investment.detailsloading.InvestDetailsLoadingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.investment.webview.InvestWebviewActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.investment.intro.InvestIntroActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.SinglePaymentWebActivity"
+            android:exported="true"
+            android:screenOrientation="1">
+
+            <intent-filter
+                android:autoVerify="true">
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/.*cgibin/webscr" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/signin/native-checkout" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/.*checkoutnow/2" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/signin/checkout" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/mobile/checkout" />
+
+                <data
+                    android:scheme="https"
+                    android:host="www.paypal.com"
+                    android:pathPattern="/.*cgi-bin/webscr" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f11005e"
+            android:name="com.paypal.android.p2pmobile.wallet.checkcapture.activities.CheckCaptureActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110181"
+            android:name="com.paypal.android.p2pmobile.pushnotification.activities.DirectReplyActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.pushnotification.activities.PushNotificationWebViewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.SdkLandingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.TermsAndConditionsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.PrivacyPolicyActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.AboutActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.DepositFundsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.FundsTimingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.ApprovalReviewActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.HistoryActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.HistoryTransactionDetailActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.KycQuestionActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.CustomerServiceActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110400"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.CameraActivity" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.KycHardFailActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.CheckFrankingUploadActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.LegalDocumentsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110400"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.AutomaticCameraActivity"
+            android:screenOrientation="0" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.LegalInfoActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.LegalInfoListActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.ViewImageActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.SuccessActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.CheckFrankingReviewActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.ManualVerificationRequiredActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.ManualVerificationSubmittedActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.IdentityVerificationFailedActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.RegisterUserActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.PostUserRegistrationActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110215"
+            android:name="com.ingomoney.ingosdk.android.ui.activity.CompletedRegistrationActivity"
+            android:screenOrientation="1" />
+
+        <service
+            android:name="com.ingomoney.ingosdk.android.service.LocationService" />
+
+        <service
+            android:name="com.ingomoney.ingosdk.android.service.A2iaService" />
+
+        <activity
+            android:theme="@ref/0x7f110219"
+            android:name="com.paypal.android.p2pmobile.benefits.activities.BenefitsWebActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.activityitems.activities.TrackShippingActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.qrcode.activities.QRCodeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.qrcode.activities.SocialIdentityProfileActivity"
+            android:screenOrientation="1" />
+
+        <meta-data
+            android:name="seitc.initialization.url"
+            android:value="@ref/0x7f100aa2" />
+
+        <meta-data
+            android:name="seitc.gcm.sender.id"
+            android:value="@ref/0x7f100aa1" />
+
+        <meta-data
+            android:name="seitc.truststore.type"
+            android:value="BKS" />
+
+        <meta-data
+            android:name="seitc.truststore.id"
+            android:resource="@ref/0x7f0f00a0" />
+
+        <meta-data
+            android:name="seitc.digitalwallet.id"
+            android:value="abc" />
+
+        <meta-data
+            android:name="seitc.transactionlog.size"
+            android:value="10" />
+
+        <meta-data
+            android:name="seitc.user.input.timeout"
+            android:value="300000" />
+
+        <meta-data
+            android:name="seitc.socket.timeout"
+            android:value="120000" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDllBRRmqVRnSLKTxEetLu3AYOt5jzezXg" />
+
+        <meta-data
+            android:name="com.google.android.gms.vision.DEPENDENCIES"
+            android:value="barcode" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.activityitems.activities.ActivityItemsActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110054"
+            android:name="com.paypal.android.p2pmobile.activityitems.activities.ActivityItemFilterActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.places.activities.PlacesLandingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.places.activities.PlacesSearchExpandedActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.p2pmobile.places.activities.PlacesViewActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f110180"
+            android:name="com.paypal.android.p2pmobile.directdeposit.activities.DirectDepositActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10" />
+
+        <activity
+            android:theme="@ref/0x0103000f"
+            android:name="com.google.android.gms.ads.AdActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f110407"
+            android:name="com.google.android.gms.ads.purchase.InAppPurchaseActivity" />
+
+        <activity
+            android:theme="@ref/0x01030010"
+            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@ref/0x7f0a0010" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.onboardingpresentation.activity.CarrierAssistedOnboardingDeviceConfirmationActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.onboardingpresentation.activity.OnboardingPhoneConfirmationFlowActivity"
+            android:screenOrientation="1" />
+
+        <service
+            android:name="com.paypal.android.foundation.instorepay.diagnostics.NfcDiagnosticsUploadService"
+            android:exported="false" />
+
+        <activity
+            android:label="@ref/0x7f100bfa"
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.SinglePaymentNativeCheckoutActivity"
+            android:exported="true"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.lib.authenticator.activity.v2.TouchActivity" />
+
+                <action
+                    android:name="com.paypal.android.lib.authenticator.activity.v3.TouchActivity" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x01030010"
+            android:label="@ref/0x7f100bef"
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.SinglePaymentAriesCheckoutActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f100bf5"
+            android:name="com.paypal.android.foundation.presentation.activity.KeepMeLoggedInConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f100bf4"
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.FuturePaymentActivity"
+            android:exported="true"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.lib.authenticator.activity.v1.TouchActivity" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.SinglePaymentNativeActivity"
+            android:exported="true"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.p2pmobile.Sdk" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.FuturePaymentConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.SinglePaymentNativePartnerCheckoutActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.interapp.presentation.activity.ConsentUriChallengeActivity" />
+
+        <activity
+            android:label="TestConsentLandingPageActivity"
+            android:name="com.paypal.android.foundation.interapp.presentation.TestConsentLandingPageActivity" />
+
+        <activity
+            android:label="TestFuturePaymentActivity"
+            android:name="com.paypal.android.foundation.interapp.presentation.TestFuturePaymentActivity" />
+
+        <activity
+            android:name="com.paypal.android.lib.authenticator.mini.PaypalLinkDialogFragment"
+            android:exported="true"
+            android:screenOrientation="5"
+            android:configChanges="0x480">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.lib.authenticator.LINK" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f1103ff"
+            android:name="com.paypal.android.foundation.compliance.activity.ComplianceBaseActivity"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.foundation.compliance.activity.ComplianceBaseActivity" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f1103ff"
+            android:name="com.paypal.android.foundation.compliance.activity.ComplianceWebViewActivity"
+            android:screenOrientation="1"
+            android:windowSoftInputMode="0x10">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.paypal.android.foundation.compliance.activity.ComplianceWebViewActivity" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:label="@ref/0x7f100bf7"
+            android:name="com.paypal.android.foundation.issuancepresentation.activity.PartnerWalletIssuanceActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:label="@ref/0x7f100bf7"
+            android:name="com.paypal.android.foundation.issuancepresentation.activity.PartnerWalletIssuanceWebViewActivity"
+            android:screenOrientation="1" />
+
+        <service
+            android:name="com.firebase.jobdispatcher.GooglePlayReceiver"
+            android:permission="com.google.android.gms.permission.BIND_NETWORK_TASK_SERVICE"
+            android:exported="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.gms.gcm.ACTION_TASK_READY" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.paypal.android.foundation.core.log.UploadLoggerJobDispatcherService"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.firebase.jobdispatcher.ACTION_EXECUTE" />
+            </intent-filter>
+        </service>
+
+        <service
+            android:name="com.paypal.android.foundation.core.log.UploadLoggerJobSchedulerService"
+            android:permission="android.permission.BIND_JOB_SERVICE"
+            android:exported="false" />
+
+        <service
+            android:name="com.paypal.android.foundation.paypalcore.trackers.FptiUploadService"
+            android:exported="false" />
+
+        <meta-data
+            android:name="com.presentation.twoFa.sms.resend.time.millis"
+            android:value="2000" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.ATOActionActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TrustedPrimaryDeviceActionActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TrustedPrimaryDeviceEnrollmentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.UserVerificationConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.UserVerificationFailureActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TwoFaLockedAccountActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TwoFaNoSoftTokenActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TwoFaPhoneNumberSelectActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.TwoFaSecurityCodeSubmitActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.EnablePINConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.ChangePINActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:name="com.paypal.android.foundation.presentation.activity.TwoLAActivity" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.DeviceConfirmationConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.DeviceConfirmationActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.DeviceConfirmCodeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.CreatePINActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.CreatePinConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.AccountRecoveryActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.NativeWebViewOnboardingActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.UserPreviewConsentActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.FingerprintActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x01030010"
+            android:name="com.noknok.android.client.appsdk.commlib.IntentHelperActivity"
+            android:exported="true"
+            android:excludeFromRecents="true" />
+
+        <activity
+            android:name="com.paypal.android.foundation.presentation.test.TestActivity" />
+
+        <activity
+            android:name="com.paypal.android.foundation.presentation.activity.FoundationImageActivity" />
+
+        <activity
+            android:name="com.paypal.android.foundation.presentation.activity.KeepMeLoggedInConsentLearnMoreActivity" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.RedirectUriChallengeActivity"
+            android:screenOrientation="1" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.AdsUriChallengeActivity" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.DeveloperConfigActivity" />
+
+        <activity
+            android:theme="@ref/0x7f1102da"
+            android:name="com.paypal.android.foundation.presentation.activity.DeveloperConfigRcsFlagsActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.default_searchable"
+                android:value=".activity.DeveloperConfigRcsFlagsActivity" />
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@ref/0x7f140001" />
+        </activity>
+
+        <meta-data
+            android:name="io.fabric.ApiKey"
+            android:value="67b6d4043980e397a7a3d286e5e80cf03a4761c7" />
+    </application>
+</manifest>
