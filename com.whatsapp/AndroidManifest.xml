@@ -1,0 +1,1180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:versionCode="48540"
+    android:versionName="2.11.328"
+    package="com.whatsapp">
+
+    <uses-sdk
+        android:minSdkVersion="7"
+        android:targetSdkVersion="19" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_COARSE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <uses-permission
+        android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <uses-permission
+        android:name="android.permission.AUTHENTICATE_ACCOUNTS" />
+
+    <uses-permission
+        android:name="android.permission.CALL_PHONE" />
+
+    <uses-permission
+        android:name="android.permission.CAMERA" />
+
+    <uses-permission
+        android:name="android.permission.CHANGE_WIFI_STATE" />
+
+    <uses-permission
+        android:name="android.permission.GET_ACCOUNTS" />
+
+    <uses-permission
+        android:name="android.permission.GET_TASKS" />
+
+    <uses-permission
+        android:name="android.permission.INSTALL_SHORTCUT" />
+
+    <uses-permission
+        android:name="android.permission.INTERNET" />
+
+    <uses-permission
+        android:name="android.permission.MANAGE_ACCOUNTS" />
+
+    <uses-permission
+        android:name="android.permission.MODIFY_AUDIO_SETTINGS" />
+
+    <uses-permission
+        android:name="android.permission.READ_CONTACTS" />
+
+    <uses-permission
+        android:name="android.permission.READ_PHONE_STATE" />
+
+    <uses-permission
+        android:name="android.permission.READ_PROFILE" />
+
+    <uses-permission
+        android:name="android.permission.READ_SYNC_SETTINGS" />
+
+    <uses-permission
+        android:name="android.permission.READ_SYNC_STATS" />
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <uses-permission
+        android:name="android.permission.RECEIVE_SMS" />
+
+    <uses-permission
+        android:name="android.permission.RECORD_AUDIO" />
+
+    <uses-permission
+        android:name="android.permission.SEND_SMS" />
+
+    <uses-permission
+        android:name="android.permission.STORAGE" />
+
+    <uses-permission
+        android:name="android.permission.USE_CREDENTIALS" />
+
+    <uses-permission
+        android:name="android.permission.VIBRATE" />
+
+    <uses-permission
+        android:name="android.permission.WAKE_LOCK" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_CONTACTS" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_SETTINGS" />
+
+    <uses-permission
+        android:name="android.permission.WRITE_SYNC_SETTINGS" />
+
+    <uses-permission
+        android:name="com.android.launcher.permission.INSTALL_SHORTCUT" />
+
+    <uses-permission
+        android:name="com.android.launcher.permission.UNINSTALL_SHORTCUT" />
+
+    <uses-permission
+        android:name="com.android.vending.BILLING" />
+
+    <uses-permission
+        android:name="com.google.android.c2dm.permission.RECEIVE" />
+
+    <uses-permission
+        android:name="com.google.android.providers.gsf.permission.READ_GSERVICES" />
+
+    <uses-permission
+        android:name="com.sec.android.provider.badge.permission.READ" />
+
+    <uses-permission
+        android:name="com.sec.android.provider.badge.permission.WRITE" />
+
+    <uses-permission
+        android:name="com.whatsapp.permission.C2D_MESSAGE" />
+
+    <uses-permission
+        android:name="com.whatsapp.permission.MAPS_RECEIVE" />
+
+    <uses-permission
+        android:name="com.whatsapp.permission.VOIP_CALL" />
+
+    <permission
+        android:name="com.whatsapp.permission.C2D_MESSAGE"
+        android:protectionLevel="0x2" />
+
+    <permission
+        android:name="com.whatsapp.permission.MAPS_RECEIVE"
+        android:protectionLevel="0x2" />
+
+    <permission
+        android:name="com.whatsapp.permission.VOIP_CALL"
+        android:protectionLevel="0x2" />
+
+    <uses-feature
+        android:name="android.hardware.location.gps"
+        android:required="false" />
+
+    <uses-feature
+        android:name="android.hardware.camera"
+        android:required="false" />
+
+    <application
+        android:theme="@ref/0x7f0f0053"
+        android:label="@ref/0x7f0e0038"
+        android:icon="@ref/0x7f020551"
+        android:name="com.whatsapp.App">
+
+        <uses-library
+            android:name="com.google.android.maps"
+            android:required="false" />
+
+        <uses-library
+            android:name="com.sec.android.app.multiwindow"
+            android:required="false" />
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="@ref/0x7f0e01f2" />
+
+        <activity
+            android:name="com.whatsapp.Main"
+            android:configChanges="0xfb0"
+            android:hardwareAccelerated="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MAIN" />
+
+                <category
+                    android:name="android.intent.category.LAUNCHER" />
+
+                <category
+                    android:name="android.intent.category.MULTIWINDOW_LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0055"
+            android:name="com.whatsapp.Conversation"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x1">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SENDTO" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="sms" />
+
+                <data
+                    android:scheme="smsto" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0e01f6"
+            android:name="com.whatsapp.Advanced"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e036e"
+            android:name="com.whatsapp.ProfileInfoActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e02a9"
+            android:name="com.whatsapp.ProfilePhotoReminder"
+            android:configChanges="0xfb0" />
+
+        <activity-alias
+            android:label="@ref/0x7f0e0331"
+            android:name="com.whatsapp.SetAsProfilePhoto"
+            android:targetActivity="com.whatsapp.ProfileInfoActivity">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.ATTACH_DATA" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="image/*" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0368"
+            android:name="com.whatsapp.AccountInfoActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e038d"
+            android:name="com.whatsapp.SetStatus"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005c"
+            android:name="com.whatsapp.EULA"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e02d5"
+            android:name="com.whatsapp.RegisterPhone"
+            android:launchMode="2"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x15" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e03fa"
+            android:name="com.whatsapp.VerifySms"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e02d1"
+            android:name="com.whatsapp.RegisterName"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e010c"
+            android:name="com.whatsapp.DescribeProblemActivity"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x22" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e03c9"
+            android:name="com.whatsapp.SystemStatusActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0350"
+            android:name="com.whatsapp.Settings"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0335"
+            android:name="com.whatsapp.SettingsAccount"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0344"
+            android:name="com.whatsapp.SettingsChat"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e01f5"
+            android:name="com.whatsapp.SettingsContacts"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0352"
+            android:name="com.whatsapp.SettingsHelp"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0367"
+            android:name="com.whatsapp.SettingsNotifications"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e035b"
+            android:name="com.whatsapp.SettingsNetworkUsage"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0336"
+            android:name="com.whatsapp.SettingsAutodownload"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:theme="@ref/0x7f0f0061"
+            android:label="@ref/0x7f0e0369"
+            android:name="com.whatsapp.SettingsPrivacy"
+            android:configChanges="0xf30" />
+
+        <activity
+            android:label="@ref/0x7f0e0312"
+            android:name="com.whatsapp.SearchFAQ"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e0312"
+            android:name="com.whatsapp.FaqItemActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005c"
+            android:name="com.whatsapp.About" />
+
+        <activity
+            android:label="@ref/0x7f0e0052"
+            android:name="com.whatsapp.BlockList"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.ContactPicker"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.PICK" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="com.whatsapp" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEND" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="audio/*" />
+
+                <data
+                    android:mimeType="video/*" />
+
+                <data
+                    android:mimeType="image/*" />
+
+                <data
+                    android:mimeType="text/plain" />
+
+                <data
+                    android:mimeType="text/x-vcard" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEND_MULTIPLE" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="audio/*" />
+
+                <data
+                    android:mimeType="video/*" />
+
+                <data
+                    android:mimeType="image/*" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <category
+                    android:name="android.intent.category.BROWSABLE" />
+
+                <data
+                    android:scheme="whatsapp"
+                    android:host="send" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.whatsapp.MultipleContactPicker"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:name="com.whatsapp.ListMembersSelector"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:name="com.whatsapp.GroupMembersSelector"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e005a"
+            android:name="com.whatsapp.Broadcasts"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.BroadcastDetails"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0057"
+            android:label="@ref/0x7f0e020a"
+            android:name="com.whatsapp.MessageDetailsActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e0253"
+            android:name="com.whatsapp.NewGroup"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0198"
+            android:name="com.whatsapp.GroupChatInfo"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.GroupChatLiveLocationsActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.GroupChatLiveLocationsActivity2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.GroupChatRecentLocationsActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e01d4"
+            android:name="com.whatsapp.ListChatInfo"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e00ac"
+            android:name="com.whatsapp.ContactInfo"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@string/0x20"
+            android:name="com.whatsapp.CallLogActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e007d"
+            android:name="com.whatsapp.Conversations"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e003b"
+            android:name="com.whatsapp.ArchivedConversationsActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0058"
+            android:label="@ref/0x7f0e0038"
+            android:name="com.whatsapp.HomeActivity"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0062"
+            android:label="@ref/0x7f0e0038"
+            android:name="com.whatsapp.QuickContactActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:name="com.whatsapp.ViewSharedContactActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:label="@ref/0x7f0e0292"
+            android:name="com.whatsapp.CountryPicker"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.wallpaper.CropImage"
+            android:hardwareAccelerated="false" />
+
+        <activity
+            android:label="@ref/0x7f0e0426"
+            android:name="com.whatsapp.wallpaper.WallpaperPicker"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.SET_WALLPAPER" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0e00b9"
+            android:name="com.whatsapp.ContactPickerHelp"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x01030055"
+            android:label="@ref/0x7f0e0268"
+            android:icon="@ref/0x7f020108"
+            android:name="com.whatsapp.wallpaper.ResetWallpaper"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.RESET_WALLPAPER" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:label="@ref/0x7f0e00e9"
+            android:icon="@ref/0x7f020524"
+            android:name="com.whatsapp.DefaultWallpaper"
+            android:targetActivity="com.whatsapp.wallpaper.ResetWallpaper">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.DEFAULT_WALLPAPER" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:theme="@ref/0x01030055"
+            android:label="@ref/0x7f0e0307"
+            android:icon="@ref/0x7f020108"
+            android:name="com.whatsapp.ResetPhoto"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.RESET_GROUP_PHOTO" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity-alias
+            android:label="@ref/0x7f0e0308"
+            android:icon="@ref/0x7f020108"
+            android:name="com.whatsapp.ResetProfilePhoto"
+            android:targetActivity="com.whatsapp.ResetPhoto">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.RESET_PROFILE_PHOTO" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity-alias
+            android:label="@ref/0x7f0e0110"
+            android:icon="@ref/0x7f020108"
+            android:name="com.whatsapp.RemoveScreenshot"
+            android:targetActivity="com.whatsapp.ResetPhoto">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.REMOVE_SCREENSHOT" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity-alias>
+
+        <activity
+            android:theme="@ref/0x01030055"
+            android:label="@ref/0x7f0e030f"
+            android:icon="@ref/0x7f02007b"
+            android:name="com.whatsapp.ViewProfilePhoto$SavePhoto"
+            android:exported="false">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.SAVE_PHOTO" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0063"
+            android:label="@ref/0x7f0e02b2"
+            android:name="com.whatsapp.RecordAudio"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.GET_CONTENT" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="audio/*" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.action.WHATSAPP_RECORDING" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="audio/*" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="@ref/0x7f0e0038"
+            android:name="com.whatsapp.accountsync.LoginActivity"
+            android:screenOrientation="1">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:label="Profile"
+            android:name="com.whatsapp.accountsync.ProfileActivity"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+
+                <data
+                    android:mimeType="vnd.android.cursor.item/vnd.com.whatsapp.profile" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0060"
+            android:name="com.whatsapp.PopupNotification"
+            android:taskAffinity="@string/0x20"
+            android:excludeFromRecents="true"
+            android:launchMode="3"
+            android:configChanges="0xff0"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:name="com.whatsapp.PopupNotificationLocked"
+            android:taskAffinity="@string/0x20"
+            android:excludeFromRecents="true"
+            android:launchMode="3"
+            android:configChanges="0xff0"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:theme="@ref/0x7f0f0054"
+            android:label="@ref/0x7f0e0034"
+            android:name="com.whatsapp.MediaGallery"
+            android:launchMode="2"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005b"
+            android:name="com.whatsapp.MediaView"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005f"
+            android:name="com.whatsapp.OverlayAlert"
+            android:taskAffinity="@string/0x20"
+            android:excludeFromRecents="true"
+            android:launchMode="3"
+            android:configChanges="0xff0" />
+
+        <activity
+            android:label="@ref/0x7f0e0318"
+            android:icon="@ref/0x7f020609"
+            android:name="com.whatsapp.WebImagePicker"
+            android:exported="false"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.intent.action.SEARCH_PHOTO" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0054"
+            android:name="com.whatsapp.ViewProfilePhoto"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005e"
+            android:name="com.whatsapp.SmsDefaultAppWarning"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0320"
+            android:name="com.whatsapp.LocationPicker"
+            android:exported="false"
+            android:launchMode="1"
+            android:configChanges="0x30">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@ref/0x7f050003" />
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0320"
+            android:name="com.whatsapp.LocationPicker2"
+            android:exported="false"
+            android:launchMode="1"
+            android:configChanges="0x30">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.VIEW" />
+
+                <category
+                    android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.SEARCH" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@ref/0x7f050003" />
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0349"
+            android:name="com.whatsapp.DeleteAccount"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0349"
+            android:name="com.whatsapp.DeleteAccountConfirmation"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005f"
+            android:name="com.whatsapp.messaging.CaptivePortalActivity"
+            android:taskAffinity="@string/0x20"
+            android:excludeFromRecents="true"
+            android:launchMode="3" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0079"
+            android:name="com.whatsapp.ChangeNumber"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:theme="@ref/0x7f0f0056"
+            android:label="@ref/0x7f0e0079"
+            android:name="com.whatsapp.ChangeNumberOverview"
+            android:configChanges="0xfb0"
+            android:windowSoftInputMode="0x1" />
+
+        <activity
+            android:theme="@ref/0x7f0f005a"
+            android:label="@ref/0x7f0e02a3"
+            android:icon="@ref/0x7f020516"
+            android:name="com.whatsapp.gallerypicker.ImagePreview"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005a"
+            android:label="@ref/0x7f0e0178"
+            android:icon="@ref/0x7f020516"
+            android:name="com.whatsapp.gallerypicker.GalleryPicker"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005a"
+            android:label="@ref/0x7f0e0173"
+            android:icon="@ref/0x7f020516"
+            android:name="com.whatsapp.gallerypicker.ImageGallery"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005a"
+            android:label="@ref/0x7f0e02a3"
+            android:name="com.whatsapp.VideoPreviewActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f0059"
+            android:label="@ref/0x7f0e0069"
+            android:icon="@ref/0x7f020574"
+            android:name="com.whatsapp.camera.CameraActivity"
+            android:exported="true"
+            android:configChanges="0xfb0">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.CREATE_SHORTCUT" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:theme="@ref/0x7f0f006b"
+            android:label="@ref/0x7f0e0418"
+            android:name="com.whatsapp.VoipActivity"
+            android:permission="com.whatsapp.permission.VOIP_CALL"
+            android:taskAffinity=":voip"
+            android:finishOnTaskLaunch="true"
+            android:excludeFromRecents="true"
+            android:launchMode="2"
+            android:screenOrientation="1"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:theme="@ref/0x7f0f005e"
+            android:name="com.whatsapp.VoipNotAllowedActivity"
+            android:configChanges="0xfb0" />
+
+        <activity
+            android:name="com.whatsapp.CorruptInstallationActivity"
+            android:launchMode="1" />
+
+        <activity
+            android:name="com.whatsapp.InsufficientStorageSpaceActivity"
+            android:launchMode="1" />
+
+        <activity
+            android:name="com.whatsapp.IncorrectAppReleaseVersionActivity"
+            android:launchMode="1" />
+
+        <receiver
+            android:name="com.whatsapp.BootReceiver"
+            android:enabled="true">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.BOOT_COMPLETED" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.whatsapp.c2dm.C2DMBroadcastReceiver"
+            android:permission="com.google.android.c2dm.permission.SEND">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.RECEIVE" />
+
+                <category
+                    android:name="com.whatsapp" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="com.google.android.c2dm.intent.REGISTRATION" />
+
+                <category
+                    android:name="com.whatsapp" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.whatsapp.ExternalMediaManager$ExternalMediaStateReceiver">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_MOUNTED" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_BAD_REMOVAL" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_REMOVED" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_SHARED" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_UNMOUNTED" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+
+            <intent-filter>
+
+                <action
+                    android:name="android.intent.action.MEDIA_EJECT" />
+
+                <data
+                    android:scheme="file" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.whatsapp.accountsync.PerformSyncManager">
+
+            <intent-filter>
+
+                <action
+                    android:name="com.whatsapp.accountsync.intent.PERFORM_SYNC" />
+            </intent-filter>
+        </receiver>
+
+        <receiver
+            android:name="com.whatsapp.appwidget.WidgetProvider"
+            android:enabled="@ref/0x7f080006">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.appwidget.provider"
+                android:resource="@ref/0x7f05000e" />
+        </receiver>
+
+        <service
+            android:name="com.whatsapp.appwidget.WidgetService"
+            android:permission="android.permission.BIND_REMOTEVIEWS" />
+
+        <provider
+            android:name="com.whatsapp.contact.ContactProvider"
+            android:exported="false"
+            android:authorities="com.whatsapp.provider.contact" />
+
+        <provider
+            android:name="com.whatsapp.MediaProvider"
+            android:exported="false"
+            android:multiprocess="true"
+            android:authorities="com.whatsapp.provider.media" />
+
+        <service
+            android:name="com.whatsapp.messaging.MessageService" />
+
+        <service
+            android:name="com.whatsapp.c2dm.C2DMRegistrar" />
+
+        <service
+            android:name="com.whatsapp.ExternalMediaManager" />
+
+        <service
+            android:name="com.whatsapp.accountsync.AccountAuthenticatorService"
+            android:exported="true"
+            android:process=":auth">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.accounts.AccountAuthenticator" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.accounts.AccountAuthenticator"
+                android:resource="@ref/0x7f050001" />
+        </service>
+
+        <service
+            android:name="com.whatsapp.accountsync.ContactsSyncAdapterService"
+            android:exported="true"
+            android:process=":contacts">
+
+            <intent-filter>
+
+                <action
+                    android:name="android.content.SyncAdapter" />
+            </intent-filter>
+
+            <meta-data
+                android:name="android.content.SyncAdapter"
+                android:resource="@ref/0x7f05000d" />
+
+            <meta-data
+                android:name="android.provider.CONTACTS_STRUCTURE"
+                android:resource="@ref/0x7f050002" />
+        </service>
+
+        <service
+            android:name="com.whatsapp.VideoTranscodeService" />
+
+        <service
+            android:name="com.whatsapp.LocationSharingService" />
+
+        <service
+            android:name="com.whatsapp.VoiceService" />
+
+        <service
+            android:name="com.whatsapp.AndroidWear" />
+
+        <meta-data
+            android:name="com.sec.android.support.multiwindow"
+            android:value="true" />
+
+        <meta-data
+            android:name="com.sec.android.multiwindow.DEFAULT_SIZE_W"
+            android:value="632.0dip" />
+
+        <meta-data
+            android:name="com.sec.android.multiwindow.DEFAULT_SIZE_H"
+            android:value="598.0dip" />
+
+        <meta-data
+            android:name="com.sec.android.multiwindow.MINIMUM_SIZE_W"
+            android:value="632.0dip" />
+
+        <meta-data
+            android:name="com.sec.android.multiwindow.MINIMUM_SIZE_H"
+            android:value="598.0dip" />
+    </application>
+</manifest>

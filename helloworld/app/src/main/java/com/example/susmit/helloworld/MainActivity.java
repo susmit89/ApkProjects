@@ -8,6 +8,7 @@ import android.net.ConnectivityManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.os.StrictMode;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 
@@ -23,6 +24,7 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
+import android.os.StrictMode;
 
 public class MainActivity extends AppCompatActivity {
     private ProgressDialog progressDialog;
@@ -31,6 +33,18 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder()
+                .detectDiskReads()
+                .detectDiskWrites()
+                .detectNetwork()   // or .detectAll() for all detectable problems
+                .penaltyLog()
+                .build());
+        StrictMode.setVmPolicy(new StrictMode.VmPolicy.Builder()
+                .detectLeakedSqlLiteObjects()
+                .detectLeakedClosableObjects()
+                .penaltyLog()
+                .penaltyDeath()
+                .build());
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         b1 = (Button) findViewById(R.id.button);
@@ -39,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 checkInternetConenction();
-                downloadImage("http://www.tutorialspoint.com/green/images/logo.png");
+                downloadImage("http://pngimg.com/uploads/google/google_PNG19644.png");
             }
         });
     }
@@ -48,8 +62,7 @@ public class MainActivity extends AppCompatActivity {
         progressDialog = ProgressDialog.show(this, "", "Downloading Image from " + urlStr);
         final String url = urlStr;
 
-        new Thread() {
-            public void run() {
+
                 InputStream in = null;
 
                 Message msg = Message.obtain();
@@ -61,14 +74,16 @@ public class MainActivity extends AppCompatActivity {
                     Bundle b = new Bundle();
                     b.putParcelable("bitmap", bitmap);
                     msg.setData(b);
+                    ImageView img = (ImageView) findViewById(R.id.imageView);
+                    img.setImageBitmap((Bitmap) (msg.getData().getParcelable("bitmap")));
                     in.close();
+                    progressDialog.dismiss();
                 }catch (IOException e1) {
                     e1.printStackTrace();
                 }
                 messageHandler.sendMessage(msg);
             }
-        }.start();
-    }
+
 
     private InputStream openHttpConnection(String urlStr) {
         InputStream in = null;
@@ -106,8 +121,7 @@ public class MainActivity extends AppCompatActivity {
             TextView mTxtDisplay;
             mTxtDisplay = (TextView) findViewById(R.id.textView);
             mTxtDisplay.setText("Response: " + "Received");
-            ImageView img = (ImageView) findViewById(R.id.imageView);
-            img.setImageBitmap((Bitmap) (msg.getData().getParcelable("bitmap")));
+
             progressDialog.dismiss();
         }
     };
